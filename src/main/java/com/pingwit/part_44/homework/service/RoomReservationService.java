@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class RoomReservationService {
-    private static final String ROOM_FREE = "$r%dF";
-    private static final String ROOM_OCCUPIED = "r%dNF";
+    private static final String ROOM_FREE = "r%df";
+    private static final String ROOM_OCCUPIED = "r%dnf";
 
     private final RoomReservationRepository repository;
 
@@ -42,7 +42,5 @@ public class RoomReservationService {
 
         hotelRoomSchema = hotelRoomSchema.replace(occupiedRoomInfo, freeRoomInfo);
         return repository.save(hotelRoomSchema);
-
-
     }
 }
